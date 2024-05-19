@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+<script>
+arr = [10,20,30,40,50]
+Array.prototype.isEmpty = function(){
+if(arr.length == 0){
+alert("Array is Empty")
+}else{
+alert("Array is not Empty")
+}
+}
+Array.prototype.display = function(){
+for(i=0;i<arr.length;i++){
+console.log(arr[i])
+}
+}
+Array.prototype.topelement = function(){
+return arr[arr.length - 1]
+}
+Array.prototype.underflow = function(){
+if(arr.length == 0){
+alert("Array is Empty")
+return false
+}else{
+return true
+}
+}
+console.log("-------TOP ELEMENT---------")
+console.log(arr.topelement())
+console.log("-------DISPLAY--------------")
+arr.display()
+console.log("----------PUSH-----------")
+arr.display()
+arr.push(23)
+arr.display()
+console.log("----------POP-----------")
+arr.display()
+arr.pop()
+arr.display()
+arr.isEmpty()
+while(arr.underflow()){
+a = arr.pop()
+alert(a + "is removed:")
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+<title> Event countdown </title>
+<head>
+<meta name="viewport" content="width=device-width,
+initial-scale=1">
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.
+min.css">
+<integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiG
+gFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+p {
+text-align: center;
+font-size: 60px;
+margin-top: 0px;
+}
+h1,h4 {
+text-align: center;
+}
+.jumbotron {
+background-color: rgb(255, 3, 3);
+}
+</style>
+</head>
+<body>
+<div class="jumbotron jumbotron-fluid">
+<h1 class="display-2">Event Countdown</h1>
+<h4 class="display-5">Counting down to an exiting
+event</h4>
+<p id="demo"></p>
+</div>
+</script>
+<script>
+var countDownDate = new Date("may 4, 2025 14:00:00").getTime();
+var x = setInterval(function () {
+var now = new Date().getTime();
+var distance = countDownDate - now;
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) /
+(1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000
+* 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+document.getElementById("demo").innerHTML = days + "d " + hours
++ "h " + minutes + "m " + seconds + "s ";
+if (distance < 0) {
+clearInterval(x);
+document.getElementById("demo").innerHTML =
+"EXPIRED";
+}
+}, 1000);
+</script>
+</script>
+</body> </html>

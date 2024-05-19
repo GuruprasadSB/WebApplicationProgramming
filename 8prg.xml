@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<people>
+    <person>
+        <name>abc</name>
+        <phone>9902567654</phone>
+        <address>Daswal road</address>
+        <email>a@gmail.com</email>
+    </person>
+    <person>
+        <name>bbb</name>
+        <phone>9902567658</phone>
+        <address>road</address>
+        <email>b@gmail.com</email>
+    </person>
+    <person>
+        <name>ccc</name>
+        <phone>9902567653</phone>
+        <address>MG road</address>
+        <email>c@gmail.com</email>
+    </person>
+</people>

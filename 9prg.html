@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+<title>Faculty and Student Information</title>
+<style>
+table {
+border-collapse: collapse;
+width: 100%;
+}
+th, td {
+border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+th {
+background-color: yellow;
+}
+</style>
+</head>
+<body>
+<h2 style="background-color:green">Faculty Information</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Designation</th>
+<th>Email</th>
+<th>Phone</th>
+</tr>
+<tbody id="facultyTable">
+</tbody>
+</table>
+<h2 style="background-color:red">Student Information</h2>
+<table>
+<tr>
+<th>Roll Number</th>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+</tr>
+<tbody id="studentTable">
+</tbody>
+</table>
+<script>
+var jsonData = {
+"college": "RV College of Engineering",
+"affiliated_to": "VTU",
+"department": "MCA",
+"faculty": [
+{
+"name": "Dharani",
+"designation": "HOD",
+"email": "dharanihod123@gmail.com",
+"phone": "99876231112"
+},
+{
+"name": "preethi",
+"designation": "Professor",
+"email": ".preethipatil@gmail.com",
+"phone": "8899876543"
+},
+{
+"name": "Mohan Aradhya",
+"designation": "Professor",
+"email": "mohan11@gmail.com",
+"phone": "9988332245"
+},
+{
+"name": "Jasmine",
+"designation": "Professor",
+"email": "jasmine123@gmail.com",
+"phone": "9988776655"
+},
+],
+"students": [
+{
+"roll_number": "MCA001",
+"name": "harsha",
+"email": "harsha12@gmail.com",
+"phone": "9731969371"
+},
+{
+"roll_number": "MCA002",
+"name": "raju",
+"email": "raju21@gmail.com",
+"phone": "9922112112"
+},
+{
+"roll_number": "MCA003",
+"name": "vijay",
+"email": "vijay21@gmail.com",
+"phone": "7258884321"
+},
+{
+"roll_number": "MCA004",
+"name": "raksha",
+"email": "raksha23@gmail.com",
+"phone": "9916245351"
+},
+{
+"roll_number": "MCA005",
+"name": "vishnu",
+"email": "vishnu21@gami.com",
+"phone": "7259978654"
+}
+]
+};
+// Function to generate HTML table rows for faculty
+function generateFacultyRows() {
+var facultyTableBody =
+document.getElementById("facultyTable");
+var facultyData = jsonData.faculty;
+facultyData.forEach(function(faculty) {
+var row = "<tr>";
+row += "<td>" + faculty.name + "</td>";
+row += "<td>" + faculty.designation + "</td>";
+row += "<td>" + faculty.email + "</td>";
+row += "<td>" + faculty.phone + "</td>";
+row += "</tr>";
+facultyTableBody.innerHTML += row;
+});
+}
+// Function to generate HTML table rows for students
+function generateStudentRows() {
+var studentTableBody =
+document.getElementById("studentTable");
+var studentData = jsonData.students;
+studentData.forEach(function(student) {
+var row = "<tr>";
+row += "<td>" + student.roll_number + "</td>";
+row += "<td>" + student.name + "</td>";
+row += "<td>" + student.email + "</td>";
+row += "<td>" + student.phone + "</td>";
+row += "</tr>";
+studentTableBody.innerHTML += row;
+});
+}
+generateFacultyRows();
+generateStudentRows();
+</script>
+</body>
+</html>

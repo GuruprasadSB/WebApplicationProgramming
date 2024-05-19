@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using XML</title>
+    <link rel="shortcut icon" href="#">
+    <style>
+        table, th, td {
+            border: solid 1px black;
+            padding: 10px;
+        }
+        table {
+            margin: auto;
+            margin-top: 50px;
+            border-collapse: collapse;
+        }
+        th {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <table id="tablet">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        function loadxml() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    displaydata(this);
+                }
+            };
+            xmlhttp.open('GET', '8prg.xml', true);
+            xmlhttp.send();
+        }
+
+        function displaydata(xml) {
+            var axml = xml.responseXML;
+            var bxml = axml.getElementsByTagName("person");
+            var tbody = document.querySelector("#tablet tbody");
+            for (var i = 0; i < bxml.length; i++) {
+                var people = bxml[i];
+                var name = people.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+                var phone = people.getElementsByTagName("phone")[0].childNodes[0].nodeValue;
+                var address = people.getElementsByTagName("address")[0].childNodes[0].nodeValue;
+                var email = people.getElementsByTagName("email")[0].childNodes[0].nodeValue;
+
+                var row = document.createElement("tr");
+
+                var cellName = document.createElement("td");
+                cellName.textContent = name;
+                row.appendChild(cellName);
+
+                var cellPhone = document.createElement("td");
+                cellPhone.textContent = phone;
+                row.appendChild(cellPhone);
+
+                var cellAddress = document.createElement("td");
+                cellAddress.textContent = address;
+                row.appendChild(cellAddress);
+
+                var cellEmail = document.createElement("td");
+                cellEmail.textContent = email;
+                row.appendChild(cellEmail);
+
+                tbody.appendChild(row);
+            }
+        }
+
+        window.onload = loadxml;
+    </script>
+</body>
+</html>
